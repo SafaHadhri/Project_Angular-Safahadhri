@@ -1,0 +1,24 @@
+<div class="bg-light">
+    <h1 class="text-center mt-5 mb-5">Liste des Ateliers</h1>
+    <div>
+        <input class="form-control m-2" type="text" placeholder="Rechercher un atelier" [(ngModel)]="searchTerm">
+        <a class="btn btn-link m-3" routerLink="/atelierSafaHadhri/add"><i class="bi bi-plus-circle p-3"></i>Ajouter un Atelier</a>
+        <div class="card m-2" *ngFor="let atelier of filterAteliers()">
+            <div class="card-body">
+                <h5 class="card-title">{{ atelier.nom }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                    <span class="text-muted">ID: {{ atelier.id }}</span> | 
+                    <span class="text-primary">{{ atelier.emailFormateur }}</span>
+                </h6>
+                <p class="card-text">Nombre de participants : {{ atelier.nbrParticipant }}</p>
+                <p *ngIf="atelier.statut" class="badge text-bg-success">Actif</p>
+                <p *ngIf="!atelier.statut" class="badge text-bg-danger">Inactif</p>
+                <div>
+                    <a class="btn btn-info text-white m-2" [routerLink]="['/atelierSafaHadhri/details/', atelier.id]"><i class="bi bi-info-circle"></i> Détails</a>
+                    <a class="btn btn-warning text-white m-2" [routerLink]="['/atelierSafaHadhri/update/', atelier.id]"><i class="bi bi-pen"></i> Modifier</a>
+                    <a class="btn btn-danger text-white m-2" [routerLink]="['/atelierSafaHadhri/delete/', atelier.id]"><i class="bi bi-trash"></i> Supprimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

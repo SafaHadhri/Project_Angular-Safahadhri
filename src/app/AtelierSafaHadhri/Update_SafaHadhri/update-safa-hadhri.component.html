@@ -1,0 +1,46 @@
+<div class="container mt-5 mb-5">
+    <h1 class="text-center mb-3">Modifier un Atelier</h1>
+    <div class="bg-light p-4 card" *ngIf="atelier && atelierForm">
+        <form [formGroup]="atelierForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="nom">Nom : </label>
+                <input type="text" formControlName="nom" class="form-control" id="nom" placeholder="Taper le nom de l'atelier"
+                    [ngClass]="{'is-invalid': nom?.invalid && (nom?.touched || nom?.dirty)}">
+                <div class="alert alert-danger m-2" *ngIf="nom?.errors?.['required'] && (nom?.touched || nom?.dirty)">
+                    Le nom est obligatoire.
+                </div>
+                <div class="alert alert-danger m-2" *ngIf="nom?.errors?.['minlength'] && (nom?.touched || nom?.dirty)">
+                    Le nom doit avoir au minimum 5 caractères.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="emailFormateur">Email Formateur : </label>
+                <input type="email" formControlName="emailFormateur" class="form-control" id="emailFormateur" placeholder="Taper l'email du formateur"
+                    [ngClass]="{'is-invalid': emailFormateur?.invalid && (emailFormateur?.touched || emailFormateur?.dirty)}">
+                <div class="alert alert-danger m-2" *ngIf="emailFormateur?.errors?.['required'] && (emailFormateur?.touched || emailFormateur?.dirty)">
+                    L'email du formateur est obligatoire.
+                </div>
+                <div class="alert alert-danger m-2" *ngIf="emailFormateur?.errors?.['email'] && (emailFormateur?.touched || emailFormateur?.dirty)">
+                    L'email doit avoir un format valide.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="nbrParticipant">Nombre de Participants : </label>
+                <input type="number" formControlName="nbrParticipant" class="form-control" id="nbrParticipant" placeholder="Taper le nombre de participants"
+                    [ngClass]="{'is-invalid': nbrParticipant?.invalid && (nbrParticipant?.touched || nbrParticipant?.dirty)}">
+                <div class="alert alert-danger m-2" *ngIf="nbrParticipant?.errors?.['required'] && (nbrParticipant?.touched || nbrParticipant?.dirty)">
+                    Le nombre de participants est obligatoire.
+                </div>
+                <div class="alert alert-danger m-2" *ngIf="nbrParticipant?.errors?.['min'] && (nbrParticipant?.touched || nbrParticipant?.dirty)">
+                    Le nombre de participants doit être supérieur à 15.
+                </div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" formControlName="statut" class="form-check-input" id="statut">
+                <label class="form-check-label" for="statut">Actif</label>
+            </div>
+            <button class="btn btn-primary" type="submit">Mettre à jour</button>
+            <a class="btn btn-secondary m-2" routerLink="/atelierSafaHadhri/list">Annuler</a>
+        </form>
+    </div>
+</div>

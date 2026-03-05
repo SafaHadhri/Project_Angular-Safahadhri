@@ -1,0 +1,52 @@
+h1 {
+  color: #2c3e50;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 5px;
+}
+
+.form-control:focus {
+  border-color: #5b9bd5;
+  box-shadow: 0 0 0 0.2rem rgba(91, 155, 213, 0.25);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #5b9bd5, #2c6fbb);
+  border: none;
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 111, 187, 0.4);
+}
+
+.btn-secondary {
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.alert-danger {
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+.form-check-input:checked {
+  background-color: #5b9bd5;
+  border-color: #5b9bd5;
+}

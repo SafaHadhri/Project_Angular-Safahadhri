@@ -1,0 +1,17 @@
+<div class="container bg-light">
+    <h1 class="mb-5">Détails de la suggestion</h1>
+    <div>
+        <div class="card m-2">
+            <div class="card-body">
+                <h2 class="card-title"> {{ suggestion.title }} </h2>
+                <h6><span class="text-primary"> {{ suggestion.category }} </span> {{ suggestion.date  | date:'dd MMM yyyy' }} </h6>
+                <p class="card-text"> {{ suggestion.description }} </p>
+                <p class="card-text" *ngIf="suggestion.status == 'acceptee'"> <span class="badge text-bg-success"> {{ suggestion.status }} </span> </p>
+                <p class="card-text" *ngIf="suggestion.status == 'refusee'"> <span class="badge text-bg-danger"> {{ suggestion.status }} </span> </p>
+                <p class="card-text" *ngIf="suggestion.status == 'en_attente'"> <span class="badge text-bg-warning"> {{ suggestion.status }} </span> </p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
